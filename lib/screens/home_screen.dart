@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_capstone_app/screens/settings_menu.dart';
 import '../models/product.dart';
 import '../services/api_services.dart';
 import '../services/auth_services.dart';
@@ -57,14 +58,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           IconButton(
-            tooltip: 'Logout',
-            icon: const Icon(Icons.logout),
-            onPressed: () async {
-              await AuthService.logout();
-              if (context.mounted) {
-                Navigator.pushReplacementNamed(context, '/login');
-              }
-            },
+            tooltip: 'Menu',
+            icon: const Icon(Icons.menu),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const SettingsMenu()),
+            ),
           ),
         ],
       ),
